@@ -1,0 +1,15 @@
+image: python
+
+stages:
+  - compile
+
+before_script:
+  - "pip install -U platformio"
+  - "pio lib install"
+
+job:
+  stage: compile
+  script:
+    - "pio run"
+  variables:
+    PLATFORMIO_CI_SRC: "src/main.cpp"
